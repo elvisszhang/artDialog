@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var version = require('./package.json').version;
+var path = require('path');
 
 module.exports = {
     entry: {
@@ -7,7 +8,7 @@ module.exports = {
         'dialog-plus': './src/dialog-plus.js'
     },
     output: {
-        path: 'dist',
+        path: path.resolve(__dirname, './dist'),
         filename: '[name].js',
         library: `dialog`,
         libraryTarget: 'umd'
