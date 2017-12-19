@@ -20,6 +20,9 @@ module.exports = {
 
     // 消息内容
     content: '<span class="ui-dialog-loading">Loading..</span>',
+	
+	// 内容框滚动条
+	scrolling: 'yes',
 
     // 标题
     title: '',
@@ -43,6 +46,14 @@ module.exports = {
     cancelValue: 'cancel',
 
     cancelDisplay: true,
+	
+	//简易关闭按钮
+	simpleClose: false,
+	
+	// 最大化/恢复按钮
+	max: false,
+	
+	maxValue: 'maximize/restore',
 
     // 内容宽度
     width: '',
@@ -65,11 +76,17 @@ module.exports = {
         '<div class="ui-dialog-arrow-a"></div>' +
         '<div class="ui-dialog-arrow-b"></div>' +
         '<table class="ui-dialog-grid">' +
-        '<tr>' +
-        '<td i="header" class="ui-dialog-header">' +
-        '<button i="close" class="ui-dialog-close">&#215;</button>' +
-        '<div i="title" class="ui-dialog-title"></div>' +
-        '</td>' +
+        '<tr>' + 
+			'<td i="header" class="ui-dialog-header">' +
+				'<button i="close" class="ui-dialog-close">&#215;</button>' +
+				'<button i="max" class="ui-dialog-max">&#x25a1;</button>' +
+				'<div i="title" class="ui-dialog-title"></div>' +
+			'</td>' +
+        '</tr>' +
+        '<tr>' + 
+			'<td i="simple-header" class="ui-dialog-simple-header">' +
+				'<button i="simple-close" class="ui-dialog-simple-close">&#215;</button>' +
+			'</td>' +
         '</tr>' +
         '<tr>' +
         '<td i="body" class="ui-dialog-body">' +

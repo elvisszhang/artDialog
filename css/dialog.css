@@ -42,6 +42,7 @@
 }
 
 .ui-dialog-header,
+.ui-dialog-simple-header,
 .ui-dialog-body,
 .ui-dialog-footer {
     padding: 0;
@@ -55,11 +56,56 @@
     border-bottom: 1px solid #E5E5E5;
 }
 
+.ui-dialog-simple-header {
+	display:none;
+    white-space: nowrap;
+}
+
+.ui-dialog-max{
+	position:relative;
+	_position:absolute;
+	float:right;
+	top:10px;
+	right:8px;
+	_height:26px;
+	padding:0 4px;
+	font-family:serif;
+	font-size:21px;
+	font-weight:700;
+	line-height:1;
+	color:#000;
+	text-shadow:0 1px 0 #fff;
+	opacity:.2;
+	filter:alpha(opacity=20);
+	cursor:pointer;
+	background:transparent;_background:#fff;
+	border:0;
+	-webkit-appearance:none;
+}
+
+.ui-dialog-max:hover{
+	color:#000;
+	text-decoration:none;
+	cursor:pointer;
+	outline:0;
+	opacity:.5;
+	filter:alpha(opacity=50)
+}
+
+.ui-dialog-max:focus{
+	color:#000;
+	text-decoration:none;
+	cursor:pointer;
+	outline:0;
+	opacity:.2;
+	filter:alpha(opacity=20)
+}
+
 .ui-dialog-close {
     position: relative;
     _position: absolute;
     float: right;
-    top: 13px;
+    top: 10px;
     right: 13px;
     _height: 26px;
     padding: 0 4px;
@@ -87,6 +133,42 @@
     filter: alpha(opacity=50);
 }
 
+.ui-dialog-simple-close {
+    position: absolute;
+	z-index: 1;
+    float: right;
+	padding: 0px;
+	border: none; 
+	width: 20px;
+    height: 20px;
+	line-height: 20px;
+    right: -12px;
+    top: -12px;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(16, 16, 16, .5);
+    background: #999;
+    border-radius: 24px;
+    text-align: center;
+    font-family: Helvetica, STHeiti;
+    font-size: 18px;
+	cursor: pointer;
+	-webkit-transition: linear .06s;
+    transition: linear .06s;
+}
+
+.ui-dialog-simple-close:hover,
+.ui-dialog-simple-close:focus {
+    color: #fff;
+	width: 24px;
+    height: 24px;
+    right: -14px;
+    top: -14px;
+	line-height: 24px;
+	font-size: 18px;
+	box-shadow: 0 1px 3px rgba(209, 40, 42, .5);
+	background: #d1282a;
+}
+
 .ui-dialog-title {
     margin: 0;
     line-height: 1.428571429;
@@ -100,7 +182,7 @@
 }
 
 .ui-dialog-body {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -114,7 +196,7 @@
 }
 
 .ui-dialog-footer {
-    padding: 0 20px 20px 20px;
+    padding: 0 10px 10px 10px;
 }
 
 .ui-dialog-statusbar {

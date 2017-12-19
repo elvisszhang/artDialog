@@ -129,6 +129,10 @@ artDialog.create = function(options) {
     });
 
 
+	//标题栏
+	this._$('header')
+		.css('display', this.title && !this.simpleClose ? 'block' : 'none');
+	
     // 关闭按钮
     this._$('close')
         .css('display', this.cancel === false ? 'none' : '')
@@ -137,8 +141,27 @@ artDialog.create = function(options) {
             that._trigger('cancel');
             event.preventDefault();
         });
+	
 
-
+	// 简易关闭按钮
+	this._$('simple-header')
+		.css('display', this.simpleClose === false ? 'none' : 'block');
+		
+    this._$('simple-close')
+        .on('click', function(event) {
+            that._trigger('cancel');
+            event.preventDefault();
+        });
+		
+	// 最大化切换按钮
+	this._$("max")
+		.css("display",this.max === false?"none":"")
+		.attr("title",this.maxValue)
+		.on("click",function(event){
+			that.togglemax();
+			event.preventDefault()
+		});
+	
     // 添加视觉参数
     this._$('dialog').addClass(this.skin);
     this._$('body').css('padding', this.padding);
@@ -329,7 +352,6 @@ $.extend(prototype, {
      */
     title: function(text) {
         this._$('title').text(text);
-        this._$('header')[text ? 'show' : 'hide']();
         return this;
     },
 
@@ -347,7 +369,20 @@ $.extend(prototype, {
         return this.reset();
     },
 
-
+	/** 最大化切换 */
+	togglemax:function(){
+		if(!this.maximized){
+			this.maximized=true;
+			this.old_width=this._$("content").css('width');
+			this.old_height=this._$("content").css('height');
+			this._$("content").css({"width":$(window).width()-50,"height":$(window).height()-60});
+		}
+		else{
+			this.maximized=false;
+			this._$("content").css({"width":this.old_width,"height":this.old_height});
+		}
+		this.reset();
+	},
     /**
      * 设置按钮组
      * @param   {Array, String}
