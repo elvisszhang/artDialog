@@ -375,7 +375,7 @@ $.extend(prototype, {
 			this.maximized=true;
 			this.old_width=this._$("content").css('width');
 			this.old_height=this._$("content").css('height');
-			this._$("content").css({"width":$(window).width()-50,"height":$(window).height()-60});
+			this._$("content").css({"width":$(window).width()-10,"height":$(window).height()-50});
 		}
 		else{
 			this.maximized=false;
