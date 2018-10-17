@@ -347,7 +347,7 @@ $.extend(prototype, {
      */
     title: function(text) {
         this._$('title').text(text);
-		this._$('header')[text && !this.simpleClose ? 'show' : 'hide']();
+		this._$('header')[text && !this.options.simpleClose ? 'show' : 'hide']();
         return this;
     },
 
