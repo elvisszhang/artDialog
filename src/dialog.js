@@ -127,11 +127,6 @@ artDialog.create = function(options) {
         'aria-describedby': this._$('content')
             .attr('id', 'content:' + this.id).attr('id')
     });
-
-
-	//标题栏
-	this._$('header')
-		.css('display', this.title && !this.simpleClose ? 'block' : 'none');
 	
     // 关闭按钮
     this._$('close')
@@ -352,6 +347,7 @@ $.extend(prototype, {
      */
     title: function(text) {
         this._$('title').text(text);
+		this._$('header')[text && !this.simpleClose ? 'show' : 'hide']();
         return this;
     },
 
